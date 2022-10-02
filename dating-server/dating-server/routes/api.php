@@ -25,7 +25,10 @@ Route::group(["prefix","v0.1"], function(){
             Route::post("/delete_block", [HomeController::class, "deleteBlock"])->name("home-delete-block"); 
         });
     });
-    
+    Route::group(["prefix","chat"], function(){
+        Route::post("/send_chat", [ChatController::class, "sendChat"])->name("send-chat");
+        Route::post("/receive_chat", [ChatController::class, "receiveChat"])->name("receive-chat");
+    });
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
