@@ -29,6 +29,11 @@ Route::group(["prefix","v0.1"], function(){
         Route::post("/send_chat", [ChatController::class, "sendChat"])->name("send-chat");
         Route::post("/receive_chat", [ChatController::class, "receiveChat"])->name("receive-chat");
     });
+    Route::group(["prefix","profile"], function(){
+        Route::post("/view_profile", [ProfileController::class, "viewProfile"])->name("view-profile");
+        Route::post("/edit_profile", [ProfileController::class, "editProfile"])->name("edit-profile");
+        Route::post("/visible", [ProfileController::class, "visibile"])->name("visible-profile");
+    });
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
