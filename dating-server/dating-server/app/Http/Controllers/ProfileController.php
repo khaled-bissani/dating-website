@@ -6,5 +6,13 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    //
+    function viewProfile(){
+
+    }
+    function editProfile(){
+        
+    }
+    function visibile(){
+        
+    }
 }
