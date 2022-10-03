@@ -39,6 +39,13 @@ class CreateUsersTable extends Migration
             $table->foreignId('users1_id')->constrained('users');
             $table->timestamps();
         });
+        Schema::create('chats', function (Blueprint $table) {
+            $table->id();
+            $table->string("message");
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('users1_id')->constrained('users');
+            $table->timestamps();
+        });
     }
 
     /**
