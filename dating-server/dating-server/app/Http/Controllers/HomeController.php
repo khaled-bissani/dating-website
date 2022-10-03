@@ -42,13 +42,21 @@ class HomeController extends Controller
         Favorite::where('users_id',$id)
         ->where('users1_id',$id1)
         ->delete();
-        
+
         return response()->json([
             "status" => "Success",
         ]);
     }
-    function viewFavorite(){
+    function viewFavorite(Request $request){
+        $id = $request->id;
 
+        $favorite=Favorite::where('users_id',$id)
+        ->get();
+
+        return response()->json([
+            "status" => "Success",
+            "data" => $favorite
+        ]);
     }
     function addBlock(){
 
