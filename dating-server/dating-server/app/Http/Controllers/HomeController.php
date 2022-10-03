@@ -35,8 +35,17 @@ class HomeController extends Controller
             "status" => "Success",
         ]);
     }
-    function deleteFavorite(){
+    function deleteFavorite(Request $request){
+        $id = $request->id;
+        $id1 = $request->id1;
 
+        Favorite::where('users_id',$id)
+        ->where('users1_id',$id1)
+        ->delete();
+        
+        return response()->json([
+            "status" => "Success",
+        ]);
     }
     function viewFavorite(){
 
