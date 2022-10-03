@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -34,6 +35,13 @@ class ProfileController extends Controller
         $user->bio = empty($request->bio) ? $user->bio : $request->bio;
         $user->picture = empty($request->picture) ? $user->picture : $request->picture;
 
+        // Picture: base64 to URL 
+        $code64 = explode(',', $user->picture);
+        $img = base64_decode($code64[1]);
+        $extension = explode(";", explode('/', $code64[0])[1])[0];
+        $photo_path = uniqid() . "." . $extension;
+        // file_put_contents($photo_path, $img);
+
         User::where('id',$id)->update([
             'name' => $user->name,
             'email' => $user->email,
@@ -42,7 +50,7 @@ class ProfileController extends Controller
             'gender_interested' => $user->gender_interested,
             'interest' => $user->interest,
             'location' => $user->location,
-            'picture' => $user->picture,
+            'picture' => $photo_path,
             'bio' => $user->bio
         ]);
         return response()->json([
