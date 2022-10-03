@@ -49,7 +49,22 @@ class ProfileController extends Controller
             "status" => "Success",
         ]);
     }
-    function visibile(){
+    function visibile(Request $request){
+        $visible= User::select('visible')->get();
+        $id = $request->id;
+        $visible = User::find($id);
+        if($visible->visible==0){
+            User::where('id',$id)->update([
+                'visible' => 1
+            ]);
+        }else{
+            User::where('id',$id)->update([
+                'visible' => 0
+            ]);
+        }
         
+        return response()->json([
+            "status" => "Success",
+        ]);
     }
 }
