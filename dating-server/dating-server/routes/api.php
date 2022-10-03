@@ -15,7 +15,7 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::post("/login", [LandingController::class, "logIn"])->name("landing-login"); 
     });
     Route::group(["prefix"=>"home"], function(){
-        Route::get("/view_people", [HomeController::class, "viewPeople"])->name("home-view-people");
+        Route::post("/view_people", [HomeController::class, "viewPeople"])->name("home-view-people");
         Route::group(["prefix"=>"favorite"], function(){
             Route::post("/add_favorite", [HomeController::class, "addFavorite"])->name("home-add-favorite");
             Route::post("/delete_favorite", [HomeController::class, "deleteFavorite"])->name("home-delete-favorite"); 
