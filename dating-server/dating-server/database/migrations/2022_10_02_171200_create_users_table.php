@@ -46,6 +46,12 @@ class CreateUsersTable extends Migration
             $table->foreignId('users1_id')->constrained('users');
             $table->timestamps();
         });
+        Schema::create('blocks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('users1_id')->constrained('users');
+            $table->timestamps();
+        });
     }
 
     /**
