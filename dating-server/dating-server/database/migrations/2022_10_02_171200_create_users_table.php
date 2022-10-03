@@ -18,6 +18,21 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->timestamps();
         });
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('phone_number');
+            $table->integer('age');
+            $table->string('password');
+            $table->string('picture');
+            $table->string('bio');
+            $table->string('location');
+            $table->boolean('visible')->default(1);
+            $table->string('gender_interested');
+            $table->foreignId('genders_id')->constrained('genders');
+            $table->timestamps();
+        });
     }
 
     /**
