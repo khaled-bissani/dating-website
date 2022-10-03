@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Favorite;
+use App\Models\Block;
 
 class HomeController extends Controller
 {
@@ -58,8 +59,17 @@ class HomeController extends Controller
             "data" => $favorite
         ]);
     }
-    function addBlock(){
+    function addBlock(Request $request){
+        $id = $request->id;
+        $id1 = $request->id1;
 
+        Block::insert([
+            'users_id' => $id,
+            'users1_id' => $id1
+        ]);
+        return response()->json([
+            "status" => "Success",
+        ]);
     }
     function deleteBlock(){
 
