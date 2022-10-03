@@ -21,7 +21,18 @@ class ChatController extends Controller
             "status" => "Success",
         ]);
     }
-    function receiveChat(){
-        
+    function receiveChat(Request $request){
+        $sender = $request->sender;
+        $receiver = $request->receiver;
+
+        $chat=Chat::
+        select('message')
+        ->where('users_id',$sender)
+        ->where('users1_id',$receiver)
+        ->get();
+        return response()->json([
+            "status" => "Success",
+            "data" => $chat
+        ]);
     }
 }
