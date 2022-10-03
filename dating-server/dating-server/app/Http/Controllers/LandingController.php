@@ -28,7 +28,19 @@ class LandingController extends Controller
         ]);
     }
     function continueSignup(Request $request){
-        
+        $id = $request->id;
+        $interest = $request->interest;
+        $location = $request->location;
+        $password = $request->password;
+
+        User::where('id',$id)->update([
+            'interest' => $interest,
+            'location' => $location,
+            'password' => $password
+        ]);
+        return response()->json([
+            "status" => "Success",
+        ]);
     }
     function logIn(){
 
