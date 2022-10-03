@@ -71,7 +71,16 @@ class HomeController extends Controller
             "status" => "Success",
         ]);
     }
-    function deleteBlock(){
+    function deleteBlock(Request $request){
+        $id = $request->id;
+        $id1 = $request->id1;
 
+        Block::where('users_id',$id)
+        ->where('users1_id',$id1)
+        ->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ]);
     }
 }
