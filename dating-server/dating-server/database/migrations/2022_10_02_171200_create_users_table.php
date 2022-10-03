@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('picture');
             $table->string('bio');
+            $table->string("interest");
             $table->string('location');
             $table->boolean('visible')->default(1);
             $table->string('gender_interested');
@@ -48,6 +49,13 @@ class CreateUsersTable extends Migration
         });
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('users1_id')->constrained('users');
+            $table->timestamps();
+        });
+        Schema::create('interests', function (Blueprint $table) {
+            $table->id();
+            $table->string("interest");
             $table->foreignId('users_id')->constrained('users');
             $table->foreignId('users1_id')->constrained('users');
             $table->timestamps();
