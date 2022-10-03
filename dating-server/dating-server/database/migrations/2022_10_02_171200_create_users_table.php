@@ -33,6 +33,12 @@ class CreateUsersTable extends Migration
             $table->foreignId('genders_id')->constrained('genders');
             $table->timestamps();
         });
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('users1_id')->constrained('users');
+            $table->timestamps();
+        });
     }
 
     /**
