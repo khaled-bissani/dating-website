@@ -16,9 +16,9 @@ class User extends Model
         return $this->belongsToMany(Block::class, 'blocks','users_id','users_id1');
     }
     public function Chat(){
-        return $this->belongsToMany(Favorite::class, 'chats','users_id','users_id1');
+        return $this->belongsToMany(Chat::class, 'chats','users_id','users_id1');
     }
     public function Interest(){
-        return $this->belongsToMany(Favorite::class, 'interests','users_id','users_id1');
+        return $this->belongsToMany(Interest::class, 'interests','users_id','users_id1');
     }
 }
