@@ -27,6 +27,9 @@ class LandingController extends Controller
             "status" => "Success",
         ]);
     }
+    function continueSignup(Request $request){
+        
+    }
     function logIn(){
 
     }

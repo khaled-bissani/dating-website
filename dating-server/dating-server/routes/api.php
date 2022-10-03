@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"landing"], function(){
         Route::post("/signup", [LandingController::class, "signUp"])->name("landing-signup");
+        Route::post("/continue_signup", [LandingController::class, "continueSignup"])->name("landing-continue-signup");
         Route::post("/login", [LandingController::class, "logIn"])->name("landing-login"); 
     });
     Route::group(["prefix"=>"home"], function(){
