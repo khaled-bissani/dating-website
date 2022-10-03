@@ -42,7 +42,17 @@ class LandingController extends Controller
             "status" => "Success",
         ]);
     }
-    function logIn(){
+    function logIn(Request $request){
+        $id = $request->id;
 
+        $login = User::
+        select('email','password')
+        ->where('id',$id)
+        ->get();
+
+        return response()->json([
+            "status" => "Success",
+            "data" => $login
+        ]);
     }
 }
