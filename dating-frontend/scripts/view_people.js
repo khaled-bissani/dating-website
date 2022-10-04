@@ -30,7 +30,7 @@ window.onload = async() =>{
             <div class="person">
                 <div class="person-column1">
                     <div class="person-image">
-                        <img src="${response_view_people.data.data[i].picture}" alt="person">
+                        <img src="../dating-server/dating-server/public/${response_view_people.data.data[i].picture}" alt="person">
                     </div>
                     <div class="person-information">
                         <p>${response_view_people.data.data[i].name}</p>

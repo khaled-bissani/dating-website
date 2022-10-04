@@ -40,7 +40,7 @@ class ProfileController extends Controller
         $img = base64_decode($code64[1]);
         $extension = explode(";", explode('/', $code64[0])[1])[0];
         $photo_path = uniqid() . "." . $extension;
-        // file_put_contents($photo_path, $img);
+        file_put_contents($photo_path, $img);
 
         User::where('id',$id)->update([
             'name' => $user->name,
