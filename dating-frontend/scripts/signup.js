@@ -8,30 +8,12 @@ const email = document.getElementById('email');
 const phoneNumber = document.getElementById('phone-number'); 
 const age = document.getElementById('age'); 
 const gender = document.getElementById('gender'); 
-const genderInterested = document.getElementById('gender-interested');  
+const genderInterested = document.getElementById('gender-interested');
 
-const baseLandingURL = "http://127.0.0.1:8000/api/v0.1/landing/";
-
-const postAPI = async (api_url, api_data, api_token = null) => {
-    try{
-        return await axios.post(
-            api_url,
-            api_data,
-            { headers:{
-                    'Authorization' : "token " + api_token
-                }
-            }
-        );
-    }catch(error){
-        console.log("Error from POST API", error);
-    }
-}
-
-// const landingSignup = async () => {
-//     const signup_url = `${baseLandingURL}/signup`;
-//     const response_signup = await postAPI(signup_url);
-//     console.log( response_signup.data.data);
-// }
+// Declare all the fields in the continue block
+const interest = document.getElementById('interest'); 
+const yourLocation = document.getElementById('location'); 
+const password = document.getElementById('password'); 
 
 const continueSignup = () => {
     // regex to check email format
@@ -75,7 +57,29 @@ const continueSignup = () => {
         axios.post('http://127.0.0.1:8000/api/v0.1/landing/signup',signup)
         .then(res=> console.log(res))
         .catch(err =>console.log(err));
+
+        document.getElementById('signup').style.display="none";
+        document.getElementById('continue-signup').style.display="block";
+    }
+}
+
+const submitSignup = () => {
+    if (interest.value == '') {
+        interest.style.borderColor = "red"; 
+        interest.style.borderWidth = "2px";
+        interest.placeholder = "No interest";
+    }
+    if (yourLocation.value == '') {
+        yourLocation.style.borderColor = "red"; 
+        yourLocation.style.borderWidth = "2px";
+        yourLocation.placeholder = "No location";
+    }
+    if (password.value == '') {
+        password.style.borderColor = "red"; 
+        password.style.borderWidth = "2px";
+        password.placeholder = "No password";
     }
 }
 
 continueButton.addEventListener('click',continueSignup)
+submitButton.addEventListener('click',submitSignup)
