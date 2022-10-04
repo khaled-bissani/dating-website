@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dating website</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel = "icon" type = "image/png" href = "assets/logo.png">
+    </head>
+    <body class="body">
+        <!-- Start Title -->
+        <div class="title">
+            <div class="title-image">
+                <img src="assets/logo.png" alt="Logo">
+            </div>
+            <h1>Dating website</h1>
+        </div>
+        <!-- End Title -->
+        <!-- Start Signup and Login Block -->
+        <div class="landing-block">
+            <!-- Start Signup -->
+            <div id="signup" class="landing-signup">
+                <h2>Start dating</h2>
+                <h3>Meet your perfect match</h3>
+                <div class="information-row1">
+                    <div class="input-name">
+                        <input id="name" type="text" placeholder="Name" />
+                    </div>
+                    <div class="input-email">
+                        <input id="email" type="text" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="information-row2">
+                    <div class="input-number">
+                        <input id="phone-number" type="number" placeholder="Phone Number" />
+                    </div>
+                    <div class="input-age">
+                        <input id="age" type="number" placeholder="Age" min="18"/>
+                    </div>
+                </div>
+                <div class="information-row3">
+                       <div class="choose-gender">
+                           <select id="gender">
+                                <option>Gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                       </div> 
+                       <div class="choose-gender-intersted">
+                            <select id="gender-interested">
+                                <option>Looking for:</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div> 
+                </div>
+                <div class="continue-button">
+                    <button id="continue-btn">Continue</button>
+                </div>
+                <p>Already have an account? <span id="toLogin">Login</span></p>
+            </div>
+            <!-- End Signup -->
+            <!-- Start continue signup -->
+            <div id="continue-signup" class="landing-continue-signup">
+                <h2>Contine signup</h2>
+                <h3>Meet your perfect match</h3>
+                <div class="information-column">
+                    <div class="input-interested">
+                        <input id="interest" type="text" placeholder="Interested" />
+                    </div>
+                    <div class="input-location">
+                        <input id="location" type="text" placeholder="Location" />
+                    </div>
+                    <div class="input-password">
+                        <input id="password" type="password" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button id="submit-btn">Submit</button>
+                </div>
+            </div>
+            <!-- End continue signup -->
+            <!-- Start login -->
+            <div id="login" class="landing-login">
+                <h2>Login</h2>
+                <h3>Meet your perfect match</h3>
+                <div id="wrong-info"></div>
+                <div class="information-column">
+                    <div class="login-email">
+                        <input id="email-login" type="text" placeholder="Email" />
+                    </div>
+                    <div class="login-password">
+                        <input id="password-login" type="password" placeholder="Password" />
+                    </div>
+                    <div class="choose-gender-intersted-login">
+                        <select id="gender-interested-login">
+                            <option>Looking for:</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <div class="login-button">
+                    <button id="login-btn">Login</button>
+                </div>
+                <p>Don't have an account? <span id="toSignup">Create account</span></p>
+            </div>
+            <!-- End login -->
+        </div>
+        <!-- End Login and Signup block-->
+        <script src="scripts/landing.js"></script>
+        <script src="scripts/signup.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    </body>
+</html>

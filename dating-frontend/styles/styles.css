@@ -1,0 +1,383 @@
+/* Css reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #384357;
+    --secondary-color: #C8B570;
+}
+img{
+    height: 100%;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+}
+/* Landing */
+.body{
+    background-image: url("../assets/couple6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* Title */
+.title{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.title-image{
+    width: 10%;
+}
+.title-image > img{
+    width: 100%;
+}
+.title > h1{
+    /* width: 100%; */
+    font-size: 50px;
+    color: var(--secondary-color);
+    margin-left: 20px;
+    margin-top: 30px;
+}
+/* Landing block */
+.landing-block{
+    width: 300px;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 150px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+}
+/* Signup */
+.landing-signup{
+    height: 100%;
+    display: block;
+}
+.landing-signup h2, .landing-signup h3{
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+}
+.landing-signup h2{
+    padding-top: 15px;
+    font-size: 30px;
+}
+.landing-signup h3{
+    padding-bottom: 25px;
+    font-size: 12px;
+}
+.landing-signup input{
+    border: 1px solid #d9d9d9;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    background-color: #d9d9d9;
+}
+.information-row1, .information-row2{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+.input-name, .input-email, .input-number, .input-age{
+    width: 35%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+.information-row3{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 40px;
+}
+.information-row3 select{
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    outline: none;
+}
+.choose-gender, .choose-gender-intersted{
+    width: 35%;
+    height: 30px;
+    background-color: #d9d9d9;
+    position: relative;
+}
+.continue-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 100px;
+}
+.continue-button > button{
+    font-size: 18px;
+    width: 40%;
+    height: 40px;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+.landing-signup p{
+    font-size: 12px;
+    padding-top: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+span{
+    cursor: pointer;
+}
+/* Continue signup */
+.landing-continue-signup{
+    height: 100%;
+    display: none;
+}
+.landing-continue-signup h2, .landing-continue-signup h3{
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+}
+.landing-continue-signup h2{
+    padding-top: 15px;
+    font-size: 30px;
+}
+.landing-continue-signup h3{
+    padding-bottom: 25px;
+    font-size: 12px;
+}
+.information-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.landing-continue-signup input{
+    border: 1px solid #d9d9d9;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding-top: 7px;
+    padding-left: 5px;
+    background-color: #d9d9d9;
+}
+.input-interested, .input-location, .input-password{
+    margin-top: 30px;
+    width: 80%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+.submit-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 100px;
+}
+.submit-button > button{
+    font-size: 18px;
+    width: 40%;
+    height: 40px;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+.landing-continue-signup p{
+    font-size: 12px;
+    padding-top: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+/* Login */
+.landing-login{
+    height: 100%;
+    display: none;
+}
+.landing-login h2, .landing-login h3{
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+}
+.landing-login h2{
+    padding-top: 15px;
+    font-size: 30px;
+}
+.landing-login h3{
+    padding-bottom: 25px;
+    font-size: 12px;
+}
+#wrong-info{
+   text-align: center; 
+}
+.landing-login input{
+    border: 1px solid #d9d9d9;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    background-color: #d9d9d9;
+}
+.login-email, .login-password{
+    margin-top: 30px;
+    width: 80%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+.choose-gender-intersted-login{
+    margin-top: 30px;
+    width: 80%;
+    height: 30px;
+    background-color: #d9d9d9;
+    position: relative;
+}
+.choose-gender-intersted-login select{
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    outline: none;
+}
+.login-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 100px;
+}
+.login-button > button{
+    font-size: 18px;
+    width: 40%;
+    height: 40px;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+.landing-login p{
+    font-size: 12px;
+    padding-top: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+/* Home */
+/* navbar */
+nav{
+    background: var(--primary-color);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.dating-name{
+    color: var(--secondary-color);
+    font-size: 25px;
+    line-height: 80px;
+    padding: 20px 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+label > i:first-child{
+    margin-right: 3px;
+}
+label > i:last-child{
+    margin-left: 3px;
+    margin-right: 15px;
+}
+nav ul{
+    float: right;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 8px;
+}
+nav ul li a{
+    color: var(--secondary-color);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+ul a:hover{
+    color: #d9d9d9;
+    transition: .5s;
+}
+.big-container{
+    padding: 0 80px;
+    margin-top: 100px;
+}
+/* home section */
+.home-section{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.person{
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 45%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.person-column1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-arround;
+    align-items: center;
+}
+.person-image{
+    width: 70%;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.person-image > img{
+    width: 100%;
+    border-radius: 5px;
+}
+.person-information > p{
+    margin-top: 10px;
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 18px;
+}
+.person-option{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.person-option >i{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+.person-column2{
+    width: 60%;
+    border-left: 1px solid var(--secondary-color);
+    padding: 10px 0 0 15px;
+}
+.person-interest > h1{
+    color: var(--secondary-color);
+}
+.person-interest > ul{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.person-interest li{
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+/* Utilities */
+button{
+    cursor: pointer;
+}
