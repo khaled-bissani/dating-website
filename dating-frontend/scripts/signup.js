@@ -22,7 +22,7 @@ const passwordLogin = document.getElementById('password-login');
 
 const landingBaseURL = "http://127.0.0.1:8000/api/v0.1/landing/";
 
-const postAPI = async (api_url, api_data, api_token = null) => {
+const postAPI = async (api_url, api_data = null, api_token = null) => {
     try{
         return await axios.post(
             api_url,
@@ -118,7 +118,7 @@ const submitSignup = async() => {
     }
 }
 
-const userLogin = () =>{
+const userLogin = async() =>{
     if (emailLogin.value == ''){
         emailLogin.style.borderColor = "red";
         emailLogin.style.borderWidth = "2px";
@@ -128,6 +128,34 @@ const userLogin = () =>{
         passwordLogin.style.borderColor = "red";
         passwordLogin.style.borderWidth = "2px";
         passwordLogin.placeholder = "Enter your password";
+    }
+    else if (emailLogin.value != '' && passwordLogin.value != ''){
+
+        localStorage.setItem("login-email",emailLogin.value);
+        localStorage.setItem("login-password",passwordLogin.value);
+
+        const loginEmail =localStorage.getItem("login-email");
+        const loginPassword =localStorage.getItem("login-password");
+
+        const login_url = `${landingBaseURL}login`;
+        const response_landing = await postAPI(login_url);
+
+        let enter=false;
+
+        for(let i=0; i<response_landing.data.data.length; i++){
+            console.log('hi')
+            if(response_landing.data.data[i].email == loginEmail && response_landing.data.data[i].password==loginPassword){ 
+                localStorage.setItem('currentUserId' , response_landing.data.data[i].id);
+                enter=true;
+            }
+        }
+        if(enter){
+            window.location.replace('home.html');
+        }
+        else{
+            document.getElementById('wrong-info').style.color = "red";
+            document.getElementById('wrong-info').innerText = "Wrong username or password!";
+        }
     }
 }
 
