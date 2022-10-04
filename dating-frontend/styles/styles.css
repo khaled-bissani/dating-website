@@ -11,7 +11,8 @@
 img{
     height: 100%;
 }
-body{
+/* Landing */
+.body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("../assets/couple6.jpg");
     background-size: cover;
@@ -243,6 +244,7 @@ span{
     color: #ffffff;
     text-align: center;
 }
+/* Home */
 /* Utilities */
 button{
     cursor: pointer;
