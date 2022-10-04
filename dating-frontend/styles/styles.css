@@ -336,6 +336,7 @@ ul a:hover{
 }
 .person-image{
     width: 70%;
+    height: 100px;
     border-radius: 5px;
     margin-top: 20px;
 }
