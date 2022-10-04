@@ -71,6 +71,8 @@ const continueSignup = async() => {
         signup.append("gender_interested",genderInterested.value);
         signup.append("gender",gender.value);
 
+        localStorage.setItem('currentUserEmail',email.value);
+
         const signup_url = `${landingBaseURL}signup`;
         const response_landing = await postAPI(signup_url,signup);
 
@@ -79,7 +81,7 @@ const continueSignup = async() => {
     }
 }
 
-const submitSignup = () => {
+const submitSignup = async() => {
     if (interest.value == '') {
         interest.style.borderColor = "red"; 
         interest.style.borderWidth = "2px";
@@ -94,6 +96,20 @@ const submitSignup = () => {
         password.style.borderColor = "red"; 
         password.style.borderWidth = "2px";
         password.placeholder = "No password";
+    }
+    else{
+        const continueSignup= new FormData();
+        continueSignup.append('email',localStorage.getItem('currentUserEmail'));
+        continueSignup.append('interest',interest.value);
+        continueSignup.append("location", yourLocation.value);
+        continueSignup.append("password", password.value);
+
+        const signup_url = `${landingBaseURL}continue_signup`;
+        const response_landing = await postAPI(signup_url,continueSignup);
+
+        document.getElementById('signup').style.display="none";
+        document.getElementById('continue-signup').style.display="none";
+        document.getElementById('login').style.display="block";
     }
 }
 
