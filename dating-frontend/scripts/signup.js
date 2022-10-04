@@ -1,6 +1,7 @@
 // Declare all the buttons
 const continueButton = document.getElementById('continue-btn');
 const submitButton = document.getElementById('submit-btn');
+const loginButton = document.getElementById('login-btn');
 
 // Declare all input fields and drop down menu
 const fullName = document.getElementById('name');
@@ -14,6 +15,10 @@ const genderInterested = document.getElementById('gender-interested');
 const interest = document.getElementById('interest'); 
 const yourLocation = document.getElementById('location'); 
 const password = document.getElementById('password'); 
+
+// Declare the email and password field in login block
+const emailLogin = document.getElementById('email-login'); 
+const passwordLogin = document.getElementById('password-login'); 
 
 const landingBaseURL = "http://127.0.0.1:8000/api/v0.1/landing/";
 
@@ -113,5 +118,19 @@ const submitSignup = async() => {
     }
 }
 
+const userLogin = () =>{
+    if (emailLogin.value == ''){
+        emailLogin.style.borderColor = "red";
+        emailLogin.style.borderWidth = "2px";
+        emailLogin.placeholder = "Enter your email";
+    }
+    if (passwordLogin.value == ''){
+        passwordLogin.style.borderColor = "red";
+        passwordLogin.style.borderWidth = "2px";
+        passwordLogin.placeholder = "Enter your password";
+    }
+}
+
 continueButton.addEventListener('click',continueSignup)
 submitButton.addEventListener('click',submitSignup)
+loginButton.addEventListener('click',userLogin)
