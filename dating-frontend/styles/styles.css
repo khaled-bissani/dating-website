@@ -296,10 +296,73 @@ ul a:hover{
     transition: .5s;
 }
 .big-container{
-    padding: 0 100px;
+    padding: 0 80px;
     margin-top: 100px;
 }
 /* home section */
+.home-section{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.person{
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 45%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.person-column1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-arround;
+    align-items: center;
+}
+.person-image{
+    width: 70%;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.person-image > img{
+    width: 100%;
+    border-radius: 5px;
+}
+.person-information > p{
+    margin-top: 10px;
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 18px;
+}
+.person-option{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.person-option >i{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+.person-column2{
+    width: 60%;
+    border-left: 1px solid var(--secondary-color);
+    padding: 10px 0 0 15px;
+}
+.person-interest > h1{
+    color: var(--secondary-color);
+}
+.person-interest > ul{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.person-interest li{
+    color: var(--secondary-color);
+    font-size: 20px;
+}
 /* Utilities */
 button{
     cursor: pointer;
