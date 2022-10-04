@@ -63,6 +63,19 @@ const continueSignup = () => {
         email.value = '';
         email.placeholder = "Not valid email";
     }
+    else{
+        const signup= new FormData();
+        signup.append('name',fullName.value);
+        signup.append("email", email.value);
+        signup.append("phone_number", phoneNumber.value);
+        signup.append("age", age.value);
+        signup.append("gender_interested",genderInterested.value);
+        signup.append("gender",gender.value);
+
+        axios.post('http://127.0.0.1:8000/api/v0.1/landing/signup',signup)
+        .then(res=> console.log(res))
+        .catch(err =>console.log(err));
+    }
 }
 
 continueButton.addEventListener('click',continueSignup)
