@@ -45,6 +45,7 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
 }
+/* Signup */
 .landing-signup{
     height: 100%;
     display: none;
@@ -126,9 +127,10 @@ body{
 span{
     cursor: pointer;
 }
+/* Continue signup */
 .landing-continue-signup{
     height: 100%;
-    display: block;
+    display: none;
 }
 .landing-continue-signup h2, .landing-continue-signup h3{
     color: #ffffff;
@@ -183,3 +185,4 @@ span{
     color: #ffffff;
     text-align: center;
 }
+/* Login */
