@@ -48,7 +48,7 @@ body{
 /* Signup */
 .landing-signup{
     height: 100%;
-    display: none;
+    display: block;
 }
 .landing-signup h2, .landing-signup h3{
     color: #ffffff;
@@ -90,7 +90,6 @@ body{
     margin-top: 40px;
 }
 .information-row3 select{
-    /* display: none; */
     width: 100%;
     height: 100%;
     background-color: #d9d9d9;
@@ -186,3 +185,56 @@ span{
     text-align: center;
 }
 /* Login */
+.landing-login{
+    height: 100%;
+    display: none;
+}
+.landing-login h2, .landing-login h3{
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+}
+.landing-login h2{
+    padding-top: 15px;
+    font-size: 30px;
+}
+.landing-login h3{
+    padding-bottom: 25px;
+    font-size: 12px;
+}
+.landing-login input{
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-top: 7px;
+    padding-left: 5px;
+    background-color: #d9d9d9;
+}
+.login-email, .login-password{
+    margin-top: 30px;
+    width: 80%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+.login-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 100px;
+}
+.login-button > button{
+    font-size: 18px;
+    width: 40%;
+    height: 40px;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+.landing-login p{
+    font-size: 12px;
+    padding-top: 15px;
+    color: #ffffff;
+    text-align: center;
+}
