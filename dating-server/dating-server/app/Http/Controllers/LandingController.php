@@ -28,12 +28,12 @@ class LandingController extends Controller
         ]);
     }
     function continueSignup(Request $request){
-        $id = $request->id;
+        $email = $request->email;
         $interest = $request->interest;
         $location = $request->location;
         $password = $request->password;
 
-        User::where('id',$id)->update([
+        User::where('email',$email)->update([
             'interest' => $interest,
             'location' => $location,
             'password' => $password
@@ -43,11 +43,8 @@ class LandingController extends Controller
         ]);
     }
     function logIn(Request $request){
-        $id = $request->id;
-
         $login = User::
-        select('email','password')
-        ->where('id',$id)
+        select('id','email','password')
         ->get();
 
         return response()->json([
