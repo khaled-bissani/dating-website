@@ -34,7 +34,7 @@ const postAPI = async (api_url, api_data = null, api_token = null) => {
             }
         );
     }catch(error){
-        workshop_pages.Console("Error from POST API", error);
+        console.log("Error from POST API", error);
     }
 }
 
