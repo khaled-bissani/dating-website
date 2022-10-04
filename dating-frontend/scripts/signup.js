@@ -15,7 +15,24 @@ const interest = document.getElementById('interest');
 const yourLocation = document.getElementById('location'); 
 const password = document.getElementById('password'); 
 
-const continueSignup = () => {
+const landingBaseURL = "http://127.0.0.1:8000/api/v0.1/landing/";
+
+const postAPI = async (api_url, api_data, api_token = null) => {
+    try{
+        return await axios.post(
+            api_url,
+            api_data,
+            { headers:{
+                    'Authorization' : "token " + api_token
+                }
+            }
+        );
+    }catch(error){
+        workshop_pages.Console("Error from POST API", error);
+    }
+}
+
+const continueSignup = async() => {
     // regex to check email format
     const emailFormat=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
@@ -54,9 +71,8 @@ const continueSignup = () => {
         signup.append("gender_interested",genderInterested.value);
         signup.append("gender",gender.value);
 
-        axios.post('http://127.0.0.1:8000/api/v0.1/landing/signup',signup)
-        .then(res=> console.log(res))
-        .catch(err =>console.log(err));
+        const signup_url = `${landingBaseURL}signup`;
+        const response_landing = await postAPI(signup_url,signup);
 
         document.getElementById('signup').style.display="none";
         document.getElementById('continue-signup').style.display="block";
