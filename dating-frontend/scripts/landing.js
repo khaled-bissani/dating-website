@@ -18,7 +18,5 @@ const goToSignup = () => {
     openLogin.style.display="none";
 }
 
-
-
 toLogin.addEventListener('click',goToLogin);
 toSignup.addEventListener('click',goToSignup);

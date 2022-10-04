@@ -24,15 +24,15 @@
                 <h3>Meet your perfect match</h3>
                 <div class="information-row1">
                     <div class="input-name">
-                        <input type="text" placeholder="Name" />
+                        <input id="name" type="text" placeholder="Name" />
                     </div>
                     <div class="input-email">
-                        <input type="text" placeholder="Email" />
+                        <input id="email" type="text" placeholder="Email" />
                     </div>
                 </div>
                 <div class="information-row2">
                     <div class="input-number">
-                        <input type="number" placeholder="Phone Number" />
+                        <input id="phone-number" type="number" placeholder="Phone Number" />
                     </div>
                     <div class="input-age">
                         <input type="number" placeholder="Age" min="18"/>
@@ -55,7 +55,7 @@
                         </div> 
                 </div>
                 <div class="continue-button">
-                    <button>Continue</button>
+                    <button id="continue-btn">Continue</button>
                 </div>
                 <p>Already have an account? <span id="toLogin">Login</span></p>
             </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="submit-button">
-                    <button>Submit</button>
+                    <button id="submit-btn">Submit</button>
                 </div>
             </div>
             <!-- End continue signup -->
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="login-button">
-                    <button>Login</button>
+                    <button id="login-btn">Login</button>
                 </div>
                 <p>Don't have an account? <span id="toSignup">Create account</span></p>
             </div>
@@ -101,5 +101,7 @@
         </div>
         <!-- End Login and Signup block-->
         <script src="scripts/landing.js"></script>
+        <script src="scripts/signup.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     </body>
 </html>
