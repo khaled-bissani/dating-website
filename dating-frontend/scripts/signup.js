@@ -18,7 +18,8 @@ const password = document.getElementById('password');
 
 // Declare the email and password field in login block
 const emailLogin = document.getElementById('email-login'); 
-const passwordLogin = document.getElementById('password-login'); 
+const passwordLogin = document.getElementById('password-login');
+const genderInterestedLogin = document.getElementById('gender-interested-login'); 
 
 const landingBaseURL = "http://127.0.0.1:8000/api/v0.1/landing/";
 
@@ -146,6 +147,7 @@ const userLogin = async() =>{
             console.log('hi')
             if(response_landing.data.data[i].email == loginEmail && response_landing.data.data[i].password==loginPassword){ 
                 localStorage.setItem('currentUserId' , response_landing.data.data[i].id);
+                localStorage.setItem('genderIntersetedIn' , genderInterestedLogin.value);
                 enter=true;
             }
         }

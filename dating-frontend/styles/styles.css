@@ -229,6 +229,19 @@ span{
     height: 30px;
     background-color: #d9d9d9;
 }
+.choose-gender-intersted-login{
+    margin-top: 30px;
+    width: 80%;
+    height: 30px;
+    background-color: #d9d9d9;
+    position: relative;
+}
+.choose-gender-intersted-login select{
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    outline: none;
+}
 .login-button{
     display: flex;
     justify-content: center;
