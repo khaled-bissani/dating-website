@@ -51,6 +51,10 @@ window.onload = async() =>{
                         <ul>
                             <li>${response_view_people.data.data[i].interest}</li>
                         </ul>
+                        <h1>Bio:</h1>
+                        <ul>
+                            <li>${response_view_people.data.data[i].bio}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -87,6 +91,10 @@ window.onload = async() =>{
                         <h1>Interests:</h1>
                         <ul>
                             <li>${response_view_people.data.data[i].interest}</li>
+                        </ul>
+                        <h1>Bio:</h1>
+                        <ul>
+                            <li>${response_view_people.data.data[i].bio}</li>
                         </ul>
                     </div>
                 </div>
