@@ -42,7 +42,7 @@ window.onload = async() =>{
                     </div>
                     <div class="person-option">
                         <i class="like fa fa-heart" data-value=${response_view_people.data.data[i].id}></i>
-                        <i class="fa fa-comment"></i>
+                        <i class="save-chat fa fa-comment" data-value=${response_view_people.data.data[i].id}></i>
                         <i class="block fa fa-ban" data-value=${response_view_people.data.data[i].id}></i>
                     </div>
                 </div>
@@ -96,6 +96,13 @@ window.onload = async() =>{
         });
     });
 
+    // Accessing all the chat button for each person
+    const chats = document.querySelectorAll('.save-chat')
+    chats.forEach(saveChat => {
+        saveChat.addEventListener('click', async()=>{
+            localStorage.setItem('clickedChat',saveChat.getAttribute('data-value'))            
+        })
+    });
 }
 
 const viewFavorite = async() => {
