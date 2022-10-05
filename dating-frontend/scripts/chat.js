@@ -2,6 +2,9 @@ const firstChatColumn = document.querySelector('.chat-column1');
 const secondChatColumn = document.querySelector('.chat-message')
 const chatButton = document.getElementById('go-to-chat');
 
+const messageContent = document.getElementById('message-content');
+const sendButton = document.getElementById('send-button');
+
 const chatBaseURL = "http://127.0.0.1:8000/api/v0.1/chat/";
 
 const viewChat = async() => {
@@ -46,6 +49,26 @@ const viewChat = async() => {
                     </div>`
             }
         })
+
+        sendButton.onclick = async() => {
+            const send_message = new FormData();
+            send_message.append('sender',localStorage.getItem('currentUserId'));
+            send_message.append('receiver',chat.getAttribute('data-value'));
+            send_message.append('message',messageContent.value);
+        
+            const send_message_url = `${chatBaseURL}send_chat`;
+            const response_send_message = await postAPI(send_message_url,send_message);
+        
+            for(let i=0; i<response_send_message.data.data.length; i++){
+                secondChatColumn.innerHTML += `
+                    <div class="chat-message-box">
+                        <p class="chat-box-name">${response_send_message.data.data[i].name}</p>
+                        <p class="chat-box-message">${response_send_message.data.data[i].message}</p>
+                        <p class="chat-box-time">${response_send_message.data.data[i].created_at}</p>
+                    </div>`
+            }
+        }
+
     });
     
 }
