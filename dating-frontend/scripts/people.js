@@ -1,5 +1,6 @@
 const homeContainer = document.querySelector('.home-container');
 const favoriteContainer = document.querySelector('.favorite-container');
+const favoriteButton = document.getElementById('go-to-favorite');
 const homeBaseURL = "http://127.0.0.1:8000/api/v0.1/home/";
 
 const postAPI = async (api_url, api_data = null, api_token = null) => {
@@ -61,47 +62,6 @@ window.onload = async() =>{
         `
     }
 
-    // Retreiving all the favorite from the database
-    const view_favorite= new FormData();
-    view_favorite.append('id', localStorage.getItem('currentUserId'));
-    view_favorite.append('gender_interested', localStorage.getItem('genderIntersetedIn'));
-
-    const view_favorite_url = `${homeBaseURL}favorite/view_favorite`;
-    const response_view_favorite = await postAPI(view_favorite_url,view_favorite);
-
-    for(let i=0; i<response_view_favorite.data.data.length; i++){
-        favoriteContainer.innerHTML +=`
-            <div class="person">
-                <div class="person-column1">
-                    <div class="person-image">
-                        <img src="../dating-server/dating-server/public/${response_view_people.data.data[i].picture}" alt="person">
-                    </div>
-                    <div class="person-information">
-                        <p>${response_view_people.data.data[i].name}</p>
-                        <p>${response_view_people.data.data[i].age}</p>
-                        <p>${response_view_people.data.data[i].location}</p>
-                    </div>
-                    <div class="person-option">
-                        <i class="like fa fa-heart" data-value=${response_view_people.data.data[i].id}></i>
-                        <i class="fa fa-comment"></i>
-                    </div>
-                </div>
-                <div class="person-column2">
-                    <div class="person-interest">
-                        <h1>Interests:</h1>
-                        <ul>
-                            <li>${response_view_people.data.data[i].interest}</li>
-                        </ul>
-                        <h1>Bio:</h1>
-                        <ul>
-                            <li>${response_view_people.data.data[i].bio}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        `
-    }
-
     // Accessing each favorite button in the home page
     const likes = document.querySelectorAll('.like')
     likes.forEach(like => {
@@ -118,3 +78,48 @@ window.onload = async() =>{
     });
 
 }
+
+const viewFavorite = async() => {
+    // Retreiving all the favorite from the database
+    const view_favorite= new FormData();
+    view_favorite.append('id', localStorage.getItem('currentUserId'));
+    view_favorite.append('gender_interested', localStorage.getItem('genderIntersetedIn'));
+
+    const view_favorite_url = `${homeBaseURL}favorite/view_favorite`;
+    const response_view_favorite = await postAPI(view_favorite_url,view_favorite);
+
+    for(let i=0; i<response_view_favorite.data.data.length; i++){
+        favoriteContainer.innerHTML +=`
+            <div class="person">
+                <div class="person-column1">
+                    <div class="person-image">
+                        <img src="../dating-server/dating-server/public/${response_view_favorite.data.data[i].picture}" alt="person">
+                    </div>
+                    <div class="person-information">
+                        <p>${response_view_favorite.data.data[i].name}</p>
+                        <p>${response_view_favorite.data.data[i].age}</p>
+                        <p>${response_view_favorite.data.data[i].location}</p>
+                    </div>
+                    <div class="person-option">
+                        <i class="like fa fa-heart" data-value=${response_view_favorite.data.data[i].id}></i>
+                        <i class="fa fa-comment"></i>
+                    </div>
+                </div>
+                <div class="person-column2">
+                    <div class="person-interest">
+                        <h1>Interests:</h1>
+                        <ul>
+                            <li>${response_view_favorite.data.data[i].interest}</li>
+                        </ul>
+                        <h1>Bio:</h1>
+                        <ul>
+                            <li>${response_view_favorite.data.data[i].bio}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+}
+
+favoriteButton.addEventListener('click', viewFavorite)
