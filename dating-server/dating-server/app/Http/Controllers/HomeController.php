@@ -50,8 +50,12 @@ class HomeController extends Controller
     }
     function viewFavorite(Request $request){
         $id = $request->id;
+        $gender_interested= $request->gender_interested;
 
-        $favorite=Favorite::where('users_id',$id)
+        $favorite=User::
+        join('favorites','users.id','=','favorites.users1_id')
+        ->where('favorites.users_id','=',$id)
+        ->where('users.genders_id','=',$gender_interested)
         ->get();
 
         return response()->json([
