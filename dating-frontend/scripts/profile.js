@@ -18,16 +18,16 @@ const viewProfile = async() => {
         </div>
         </div>
         <div class="profile-column2">
-            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].name}" />
-            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].email}" />
-            <input class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].phone_number}" />
-            <input class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].age}" />
-            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].bio}" />
-            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].interest}" />
-            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].location}" />
+            <input id="edit-name" class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].name}" />
+            <input id="edit-email" class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].email}" />
+            <input id="edit-number" class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].phone_number}" />
+            <input id="edit-age" class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].age}" />
+            <input id="edit-bio" class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].bio}" />
+            <input id="edit-interest" class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].interest}" />
+            <input id="edit-location" class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].location}" />
             <div class="profile-button">
                 <button class="edit-button">Edit Profile</button>
-                <button>Save</button>
+                <button class="save-button">Save</button>
             </div>
         </div>`
 
@@ -38,6 +38,33 @@ const viewProfile = async() => {
                 removeReadOnly.forEach(remove => {
                     remove.removeAttribute('readonly');
                 });
+            }
+        });
+
+        // Declare all the input fields
+        const editName = document.getElementById('edit-name');
+        const editEmail = document.getElementById('edit-email');
+        const editNumber = document.getElementById('edit-number');
+        const editAge= document.getElementById('edit-age');
+        const editBio = document.getElementById('edit-bio');
+        const editInterest = document.getElementById('edit-interest');
+        const editLocation = document.getElementById('edit-location');
+
+        const saveButton = document.querySelectorAll('.save-button');
+        saveButton.forEach(save => {
+            save.onclick = async() => {
+                const edit_profile= new FormData();
+                edit_profile.append('id', localStorage.getItem('currentUserId'));
+                edit_profile.append('name', editName.value);
+                edit_profile.append('email', editEmail.value);
+                edit_profile.append('number', editNumber.value);
+                edit_profile.append('age', editAge.value);
+                edit_profile.append('bio', editBio.value);
+                edit_profile.append('interest', editInterest.value);
+                edit_profile.append('location', editLocation.value);
+
+                const edit_profile_url = `${profileBaseURL}edit_profile`;
+                const response_edit_profile =  await postAPI(edit_profile_url,edit_profile);
             }
         });
 }
