@@ -79,6 +79,7 @@ window.onload = async() =>{
                     </div>
                     <div class="person-option">
                         <i class="like fa fa-heart" data-value=${response_view_people.data.data[i].id}></i>
+                        <i class="fa fa-comment"></i>
                     </div>
                 </div>
                 <div class="person-column2">
