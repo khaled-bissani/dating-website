@@ -33,14 +33,6 @@ class ProfileController extends Controller
         $user->interest = empty($request->interest) ? $user->interest : $request->interest;
         $user->location = empty($request->location) ? $user->location : $request->location;
         $user->bio = empty($request->bio) ? $user->bio : $request->bio;
-        $user->picture = empty($request->picture) ? $user->picture : $request->picture;
-
-        // Picture: base64 to URL 
-        $code64 = explode(',', $user->picture);
-        $img = base64_decode($code64[1]);
-        $extension = explode(";", explode('/', $code64[0])[1])[0];
-        $photo_path = uniqid() . "." . $extension;
-        file_put_contents($photo_path, $img);
 
         User::where('id',$id)->update([
             'name' => $user->name,
@@ -50,7 +42,7 @@ class ProfileController extends Controller
             'gender_interested' => $user->gender_interested,
             'interest' => $user->interest,
             'location' => $user->location,
-            'picture' => $photo_path,
+            // 'picture' => $photo_path,
             'bio' => $user->bio
         ]);
         return response()->json([
