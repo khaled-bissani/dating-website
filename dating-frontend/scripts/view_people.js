@@ -58,8 +58,15 @@ window.onload = async() =>{
     const likes = document.querySelectorAll('.like')
     console.log(likes)
     likes.forEach(like => {
-        like.addEventListener('click', ()=>{
-            console.log(like.getAttribute('data-value'))
+        like.addEventListener('click', async()=>{
+            
+            const check_favorite = new FormData();
+            check_favorite.append('id',localStorage.getItem('currentUserId'));
+            check_favorite.append('id1',like.getAttribute('data-value'));
+
+            const check_favorite_url = `${homeBaseURL}favorite/check_favorite`;
+            const response_check_favorite = await postAPI(check_favorite_url,check_favorite);
+            
         })
     });
 
