@@ -43,7 +43,7 @@ window.onload = async() =>{
                     <div class="person-option">
                         <i class="like fa fa-heart" data-value=${response_view_people.data.data[i].id}></i>
                         <i class="fa fa-comment"></i>
-                        <i class="fa fa-ban"></i>
+                        <i class="block fa fa-ban" data-value=${response_view_people.data.data[i].id}></i>
                     </div>
                 </div>
                 <div class="person-column2">
@@ -75,6 +75,25 @@ window.onload = async() =>{
             const response_check_favorite = await postAPI(check_favorite_url,check_favorite);
             
         })
+    });
+
+    // Accessing each block button for each person
+    const blocks = document.querySelectorAll('.block');
+    blocks.forEach(block => {
+        block.addEventListener('click', async()=>{
+            const add_block = new FormData();
+            add_block.append('id',localStorage.getItem('currentUserId'));
+            add_block.append('id1',block.getAttribute('data-value'));
+
+            const add_block_url = `${homeBaseURL}block/add_block`;
+            const response_add_block = await postAPI(add_block_url,add_block);
+
+            // const blockPersons = document.querySelectorAll('.person');
+            // blockPersons.forEach(blockPerson => {
+            //     blockPerson.style.display="none"
+            // })
+
+        });
     });
 
 }

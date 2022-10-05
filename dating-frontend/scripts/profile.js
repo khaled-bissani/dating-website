@@ -65,6 +65,8 @@ const viewProfile = async() => {
 
                 const edit_profile_url = `${profileBaseURL}edit_profile`;
                 const response_edit_profile =  await postAPI(edit_profile_url,edit_profile);
+
+                window.location.reload();
             }
         });
 }
