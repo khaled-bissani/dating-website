@@ -14,7 +14,7 @@ class HomeController extends Controller
         $gender_interested= $request->gender_interested;
 
         $people=User::
-        select('id','name','age','picture','interest','location')
+        select('id','name','age','picture','interest','location','bio')
         ->where('id','!=',$id)
         ->where('genders_id',$gender_interested)
         ->get();
