@@ -18,18 +18,28 @@ const viewProfile = async() => {
         </div>
         </div>
         <div class="profile-column2">
-            <input readonly type="text" value="${response_view_profile.data.data[0].name}" />
-            <input readonly type="text" value="${response_view_profile.data.data[0].email}" />
-            <input readonly type="number" value="${response_view_profile.data.data[0].phone_number}" />
-            <input readonly type="number" value="${response_view_profile.data.data[0].age}" />
-            <input readonly type="text" value="${response_view_profile.data.data[0].bio}" />
-            <input readonly type="text" value="${response_view_profile.data.data[0].interest}" />
-            <input readonly type="text" value="${response_view_profile.data.data[0].location}" />
+            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].name}" />
+            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].email}" />
+            <input class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].phone_number}" />
+            <input class="remove-readonly" readonly="readonly" type="number" value="${response_view_profile.data.data[0].age}" />
+            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].bio}" />
+            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].interest}" />
+            <input class="remove-readonly" readonly="readonly" type="text" value="${response_view_profile.data.data[0].location}" />
             <div class="profile-button">
-                <button>Edit Profile</button>
+                <button class="edit-button">Edit Profile</button>
                 <button>Save</button>
             </div>
         </div>`
+
+        const editButton = document.querySelectorAll('.edit-button');
+        editButton.forEach(edit => {
+            edit.onclick = () =>{
+                const removeReadOnly = document.querySelectorAll('.remove-readonly');
+                removeReadOnly.forEach(remove => {
+                    remove.removeAttribute('readonly');
+                });
+            }
+        });
 }
 
-profileButton.addEventListener('click',viewProfile)
+profileButton.addEventListener('click',viewProfile);
