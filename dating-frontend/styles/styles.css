@@ -396,6 +396,7 @@ ul a:hover{
     border: 1px solid #d9d9d9;
     display: flex;
     height: 120px;
+    cursor: pointer;
 }
 .chat-contact >p{
     font-size: 20px;

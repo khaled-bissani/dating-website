@@ -1,4 +1,5 @@
 const firstChatColumn = document.querySelector('.chat-column1');
+const secondChatColumn = document.querySelector('.chat-message')
 const chatButton = document.getElementById('go-to-chat');
 
 const chatBaseURL = "http://127.0.0.1:8000/api/v0.1/chat/";
@@ -14,7 +15,7 @@ const viewChat = async() => {
 
     for(let i=0; i<response_chat_contact.data.data.length; i++){
         firstChatColumn.innerHTML +=`
-            <div class="chat-contact">
+            <div class="chating chat-contact" data-value=${response_chat_contact.data.data[i].id}>
                 <div class="chat-image">
                     <img src="../dating-server/dating-server/public/${response_chat_contact.data.data[i].picture}" alt="person">
                 </div>
@@ -22,6 +23,29 @@ const viewChat = async() => {
             </div>`
     }
 
+    // Accessing all the chat contact
+    const chats = document.querySelectorAll('.chating')
+    chats.forEach(chat => {
+        chat.addEventListener('click', async()=>{
+            
+            const receive_message = new FormData();
+            receive_message.append('receiver',localStorage.getItem('currentUserId'));
+            receive_message.append('sender',chat.getAttribute('data-value'));
+
+            const receive_message_url = `${chatBaseURL}receive_chat`;
+            const response_receive_message = await postAPI(receive_message_url,receive_message);
+            
+            secondChatColumn.innerHTML=``
+            for(let i=0; i<response_receive_message.data.data.length; i++){
+                secondChatColumn.innerHTML += `
+                    <div class="chat-message-box">
+                        <p class="chat-box-name">${response_receive_message.data.data[i].name}</p>
+                        <p class="chat-box-message">${response_receive_message.data.data[i].message}</p>
+                        <p class="chat-box-time">${response_receive_message.data.data[i].created_at}</p>
+                    </div>`
+            }
+        })
+    });
     
 }
 
