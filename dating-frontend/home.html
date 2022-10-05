@@ -17,24 +17,48 @@
             <label class="dating-name">Dating website</label>
             <ul>
                 <li><a class="active" href="home.html">Home</a></li>
-                <li><a href="#">Chat</a></li>
-                <li><a href="#">Favorite</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#" id="logout">logout</a></li>
+                <li><a id="go-to-chat">Chat</a></li>
+                <li><a id="go-to-favorite">Favorite</a></li>
+                <li><a id="go-to-profile">Profile</a></li>
+                <li><a id="logout">logout</a></li>
             </ul>
         </nav>
         <!-- End navbar -->
         <!-- Start big container -->
         <div class="big-container">
             <!-- Start home section -->
-            <div id="home" class="home-section home-container">
-                
-            </div>
+            <div id="home" class="home-section home-container"></div>
             <!-- End home section -->
+            <!-- Start chat section -->
+            <div id="chat">
+                <div  class="chat-section chat-container">
+                    <div class="chat-column1"></div>
+                    <div class="chat-column2">
+                        <div class="chat-message"></div>
+                        <div class="send-chat">
+                            <input id="message-content" type="text" placeholder="Send message"/>
+                            <button id="send-button">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End chat section -->
+            <!-- Start favorite section -->
+            <div id="favorite">
+                <div  class="favorite-section favorite-container"></div>
+            </div>
+            <!-- End favorite section -->
+            <!-- Start profile section -->
+            <div id="profile">
+                <div  class="profile-section profile-container"></div>
+            </div>
+            <!-- End profile section -->
         </div>
         <!-- Start big container -->
         <script src="scripts/home.js"></script>
-        <script src="scripts/view_people.js"></script>
+        <script src="scripts/people.js"></script>
+        <script src="scripts/profile.js"></script>
+        <script src="scripts/chat.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     </body>
 </html>

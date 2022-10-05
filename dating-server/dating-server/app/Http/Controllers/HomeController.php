@@ -14,7 +14,7 @@ class HomeController extends Controller
         $gender_interested= $request->gender_interested;
 
         $people=User::
-        select('name','age','picture','interest','location')
+        select('id','name','age','picture','interest','location','bio')
         ->where('id','!=',$id)
         ->where('genders_id',$gender_interested)
         ->get();
@@ -24,34 +24,38 @@ class HomeController extends Controller
             "data" => $people
         ]);
     }
-    function addFavorite(Request $request){
+    function checkFavorite(Request $request){
         $id = $request->id;
         $id1 = $request->id1;
 
-        Favorite::insert([
-            'users_id' => $id,
-            'users1_id' => $id1
-        ]);
-        return response()->json([
-            "status" => "Success",
-        ]);
-    }
-    function deleteFavorite(Request $request){
-        $id = $request->id;
-        $id1 = $request->id1;
-
-        Favorite::where('users_id',$id)
+        $checkIfFavorite = Favorite::
+        where('users_id',$id)
         ->where('users1_id',$id1)
-        ->delete();
+        ->get();
 
+        if($checkIfFavorite->isEmpty()){
+            Favorite::insert([
+                'users_id' => $id,
+                'users1_id' => $id1
+            ]);
+        }
+        else{
+            Favorite::where('users_id',$id)
+            ->where('users1_id',$id1)
+            ->delete();
+        }
         return response()->json([
             "status" => "Success",
         ]);
     }
     function viewFavorite(Request $request){
         $id = $request->id;
+        $gender_interested= $request->gender_interested;
 
-        $favorite=Favorite::where('users_id',$id)
+        $favorite=User::
+        join('favorites','users.id','=','favorites.users1_id')
+        ->where('favorites.users_id','=',$id)
+        ->where('users.genders_id','=',$gender_interested)
         ->get();
 
         return response()->json([

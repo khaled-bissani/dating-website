@@ -21,8 +21,7 @@ Route::group(["prefix"=>"v0.1"], function(){
     Route::group(["prefix"=>"home"], function(){
         Route::post("/view_people", [HomeController::class, "viewPeople"])->name("home-view-people");
         Route::group(["prefix"=>"favorite"], function(){
-            Route::post("/add_favorite", [HomeController::class, "addFavorite"])->name("home-add-favorite");
-            Route::post("/delete_favorite", [HomeController::class, "deleteFavorite"])->name("home-delete-favorite"); 
+            Route::post("/check_favorite", [HomeController::class, "checkFavorite"])->name("home-check-favorite"); 
             Route::post("/view_favorite", [HomeController::class, "viewFavorite"])->name("home-view-favorite");
         });
         Route::group(["prefix"=>"block"], function(){
