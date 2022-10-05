@@ -395,8 +395,43 @@ ul a:hover{
 .profile-section{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+}
+.profile-column1{
+    width: 50%;
+    height: 400px;
+}
+.profile-image{
+    width:80%;
+    height: 400px;
+}
+.profile-image > img{
+    width: 100%;
+}
+.profile-column2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profile-column2 > input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 20px;
+}
+.profile-button{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+.profile-button > button{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
 }
 /* Utilities */
 button{
