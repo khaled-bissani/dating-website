@@ -378,6 +378,15 @@ ul a:hover{
     color: var(--secondary-color);
     font-size: 20px;
 }
+/* chat section */
+#chat{
+    display: none;
+}
+.chat-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 /* favorite section */
 #favorite{
     display: none;
