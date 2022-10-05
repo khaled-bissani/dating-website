@@ -114,6 +114,7 @@ const viewFavorite = async() => {
     const view_favorite_url = `${homeBaseURL}favorite/view_favorite`;
     const response_view_favorite = await postAPI(view_favorite_url,view_favorite);
 
+    favoriteContainer.innerHTML=``
     for(let i=0; i<response_view_favorite.data.data.length; i++){
         favoriteContainer.innerHTML +=`
             <div class="person">

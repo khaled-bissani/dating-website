@@ -13,6 +13,7 @@ const viewChat = async() => {
     const chat_contact_url = `${homeBaseURL}view_people`;
     const response_chat_contact =  await postAPI(chat_contact_url,chat_contact);
 
+    firstChatColumn.innerHTML=``
     for(let i=0; i<response_chat_contact.data.data.length; i++){
         firstChatColumn.innerHTML +=`
             <div class="chating chat-contact" data-value=${response_chat_contact.data.data[i].id}>
