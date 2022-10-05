@@ -18,21 +18,21 @@ class ChatController extends Controller
             'users1_id' => $receiver
         ]);
 
-        $message_sent=Chat::join('users','chats.users1_id','=','users.id')
+        $message_sent=Chat::join('users','chats.users_id','=','users.id')
         ->select('name','message', 'chats.created_at')
         ->where('users_id',$sender)
         ->where('users1_id',$receiver)
         ->get();
         return response()->json([
             "status" => "Success",
-            "message_sent" => $message_sent
+            "data" => $message_sent
         ]);
     }
     function receiveChat(Request $request){
         $sender = $request->sender;
         $receiver = $request->receiver;
 
-        $chat=Chat::join('users','chats.users1_id','=','users.id')
+        $chat=Chat::join('users','chats.users_id','=','users.id')
         ->select('name','message','chats.created_at')
         ->where('users_id',$sender)
         ->where('users1_id',$receiver)
