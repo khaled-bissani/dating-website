@@ -1,7 +1,17 @@
+const homeSection = document.getElementById('home');
+const favoriteSection = document.getElementById('favorite');
+
+const goToFavorite =document.getElementById('go-to-favorite');
 const logout =document.getElementById('logout');
 
-const logoutToLanding = () => {
-    window.location.replace('landing.html');
-  }
+const toFavorite = () => {
+  homeSection.style.display="none";
+  favoriteSection.style.display="block"
+}
 
-logout.addEventListener('click',logoutToLanding)
+const logoutToLanding = () => {
+  window.location.replace('landing.html');
+}
+
+logout.addEventListener('click',logoutToLanding);
+goToFavorite.addEventListener('click',toFavorite);

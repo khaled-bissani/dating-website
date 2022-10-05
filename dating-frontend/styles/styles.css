@@ -378,6 +378,16 @@ ul a:hover{
     color: var(--secondary-color);
     font-size: 20px;
 }
+/* favorite section */
+#favorite{
+    display: none;
+}
+.favorite-section{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 /* Utilities */
 button{
     cursor: pointer;
