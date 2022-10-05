@@ -38,7 +38,7 @@ window.onload = async() =>{
                         <p>${response_view_people.data.data[i].location}</p>
                     </div>
                     <div class="person-option">
-                        <i class="fa fa-heart"></i>
+                        <i class="like fa fa-heart" data-value=${response_view_people.data.data[i].id}></i>
                         <i class="fa fa-comment"></i>
                         <i class="fa fa-ban"></i>
                     </div>
@@ -54,5 +54,13 @@ window.onload = async() =>{
             </div>
         `
     }
+
+    const likes = document.querySelectorAll('.like')
+    console.log(likes)
+    likes.forEach(like => {
+        like.addEventListener('click', ()=>{
+            console.log(like.getAttribute('data-value'))
+        })
+    });
 
 }
